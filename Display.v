@@ -7,7 +7,7 @@ module Display(
     input wire [3:0] A, 
     input wire [3:0] B,
     input wire cin, 
-    output reg [7:0] seg,
+    output wire [7:0] seg,
     output wire [3:0] an
  );
     wire [3:0] sum; 
@@ -19,7 +19,7 @@ module Display(
     RCA adder(A, B, cin, cout, sum);
     
     //Get segment value, drive output
-    BCD_SEG(sum, seg); 
+    BCD_SEG a(sum, seg); 
     
 endmodule
 
